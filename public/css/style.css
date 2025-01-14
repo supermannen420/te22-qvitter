@@ -3,14 +3,23 @@ body {
   font-size: 1.2rem;
 }
 
-main {
+.container {
   width: min(100% - 3rem, var(--container-max, 60ch));
   margin-inline: auto;
 }
 
-.tweets {
+.region {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1em);
+}
+
+.tweets,
+.tweets ul {
   padding: 0;
-  margin: 0;
   list-style: none;
 }
 
@@ -33,9 +42,6 @@ main {
 .tweet footer ul {
   display: flex;
   gap: 1rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
   justify-content: space-between;
   align-items: center;
 }
