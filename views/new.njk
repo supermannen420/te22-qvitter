@@ -1,0 +1,17 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+<main class="container region flow">
+  <h1>Region</h1>
+  <form action="/new" method="POST">
+    <label for="message">message:</label>
+    <textarea id="message" name="message" required></textarea>
+    <label for="author_id">author_id:</label>
+    <textarea id="author_id" name="author_id" required></textarea>
+    
+    <button type="submit"> post new</button>
+  </form>
+  
+</main>
+
+{% endblock %}

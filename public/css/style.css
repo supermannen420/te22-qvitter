@@ -55,3 +55,70 @@ h1, h2, h3, h4 {
   justify-content: space-between;
   align-items: center;
 }
+
+
+
+.Delete{
+  font-size: 40px;
+  display: inline-block;
+  padding: 6px 15px;
+  transition: all 0.3s ease-in-out;
+  color: #ff0000;
+
+}
+
+.Delete:hover {
+  transform: translateY(-2px);
+  color: #b30000;
+}
+
+.Delete a{
+  text-decoration: none;
+}
+
+
+.nytt{
+  position: fixed;
+  bottom:20px;
+  right: 20px;
+  display: inline-block;
+  background: #007bff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.nytt:hover {
+  background: #0056b3;
+  transform: translateY(-6px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.nytt a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+
+
+.star {
+  font-size: 40px;
+  display: inline-block;
+  padding: 6px 15px;
+  transition: all 0.3s ease-in-out;
+  color: #007bff;
+
+}
+
+.star :hover{
+  transform: translateY(-2px);
+  color: #0056b3;
+}
+
+.star a {
+  text-decoration: none;
+  
+}

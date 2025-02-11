@@ -15,16 +15,29 @@
           </header>
           <p>{{ tweet.message }}</p>
           <footer>
-            <ul>
-              <li>Shared</li>
-              <li>Reply</li>
-              <li>Favourite</li>
+            <ul></div>
+                <div class="star">
+                  <li class="star"><a href="">&#10150;</a></li>
+                </div>
+                <div class="star">
+                  <li class="star"><a href="">&#8635;</a></li>
+                </div>
+                <div class="star">
+                  <li class="star"><a href="">&#9734;</a></li>
+                </div>
+                <div class="Delete">
+                  <li><a href="/tweets/{{ tweet.id }}/delete">&#128465;</a></li>
+                </div>
             </ul>
           </footer>
         </article>
       </li>
+     
     {% endfor %}
   </ul>
+  <div class="nytt">
+    <a href="/new">New Post</a>
+  </div>
 </main>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
