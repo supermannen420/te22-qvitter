@@ -7,9 +7,9 @@
   <ul class="tweets flow">
     {% for tweet in tweets %}
       <li class="tweet">
-        <article>
+        
           <header>
-            <h2>{{ tweet.name }}</h2>
+            <h2>{{ tweet.username }}</h2>
             <time datetime="{{ tweet.date }}">{{ tweet.date }}</time>
 
           </header>
@@ -24,6 +24,9 @@
                 </div>
                 <div class="star">
                   <li class="star"><a href="">&#9734;</a></li>
+                </div>
+                <div class="star">
+                  <li class="star"><a href="/tweets/{{ tweet.id }}/edit">&#xf5a1;</a></li>
                 </div>
                 <div class="Delete">
                   <li><a href="/tweets/{{ tweet.id }}/delete">&#128465;</a></li>

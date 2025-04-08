@@ -1,0 +1,27 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+<main class="container region flow">
+  <h1>{{ title }}</h1>
+  <form action="/tweets/edit" method="post">
+    <div class="inputText">
+      <label for="message">EDIT</label>
+    </div>
+    <div class="input">
+      <input type="hidden" username="id" value="{{ tweet.id }}">
+      <textarea id="message" username="message" required>{{ tweet.message }}</textarea>
+      <button class="Edit" type="submit">Submit</button>
+    </div>
+  </form>
+</main>
+
+<style>
+body {
+  height: 100%;
+  overflow-y: hidden;
+
+}
+
+</style>
+
+{% endblock %}

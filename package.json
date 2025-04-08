@@ -12,12 +12,17 @@
   "license": "ISC",
   "description": "Boilerplate för webbserver med Node.js och Express.",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.3",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.1",
     "morgan": "^1.10.0",
     "mysql2": "^3.12.0",
-    "nunjucks": "^3.2.4"
+    "nunjucks": "^3.2.4",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"

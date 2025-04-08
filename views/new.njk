@@ -2,10 +2,12 @@
 
 {% block content %}
 <main class="container region flow">
-  <h1>Region</h1>
+  
   <form action="/new" method="POST">
+    <div class="message">
     <label for="message">message:</label>
     <textarea id="message" name="message" required></textarea>
+  </div>
     <label for="author_id">author_id:</label>
     <textarea id="author_id" name="author_id" required></textarea>
     
@@ -13,5 +15,14 @@
   </form>
   
 </main>
+
+<style>
+
+body {
+   height: 100%;
+   overflow-y: hidden;
+}
+
+</style>
 
 {% endblock %}

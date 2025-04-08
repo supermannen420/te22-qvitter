@@ -2,20 +2,30 @@ body {
   font-family: sans-serif;
   font-size: 1.2rem;
   line-height: 1.5;
+
+  background-color: #657786;
+
 }
 
 h1, h2, h3, h4 {
   line-height: 1;
 }
 
+
+
 .container {
   width: min(100% - 3rem, var(--container-max, 60ch));
   margin-inline: auto;
+  background-color: #AAB8C2;
+  border: solid, 1px, black;
+  border-radius: 10px;
+
 }
 
 .region {
   padding-top: 3rem;
   padding-bottom: 3rem;
+  
 }
 
 .flow > * + * {
@@ -31,6 +41,10 @@ h1, h2, h3, h4 {
 .tweet {
   margin-bottom: 1rem;
   padding: 0.5rem;
+
+  background-color: #E1E8ED;
+  border: solid, 5px, black;
+  border-radius: 10px;
 }
 
 .tweet header {
@@ -56,6 +70,47 @@ h1, h2, h3, h4 {
   align-items: center;
 }
 
+textarea {
+  resize: none;
+  width: 35ch;
+  height: 20ch;
+ 
+}
+
+.inputText{
+  position: fixed;
+  top: 10%;
+  left: 48%;
+}
+
+.input{
+  position: fixed;
+  top: 25%;
+  left: 36%;
+}
+
+.Edit{
+  position: fixed;
+  top: 65%;
+  left: 46%;
+  display: inline-block;
+  background: #00ff15;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+
+  
+}
+
+.Edit:hover{
+  transform: translateY(-4px);
+  background-color: #09b300;
+}
+
+.Edit a{
+  text-decoration: none;
+}
 
 
 .Delete{
