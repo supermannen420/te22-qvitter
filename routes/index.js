@@ -1,38 +1,44 @@
 import express from "express"
 import db from "../db-sqlite.js"
-
+import { authMiddleware } from "../server.js"
 
 const router = express.Router()
 //username
-router.get("/", async (req, res) => {
+router.get("/", authMiddleware, async (req, res) => {
+  
+  
+
     const tweets = await db.all(`
-    SELECT tweet.*, user.name
+    SELECT tweet.*, user.name AS username, tweet.created_at AS date
     FROM tweet
     JOIN user ON tweet.author_id = user.id
     ORDER BY updated_at DESC;
     ;`)
 
-     // Format the dates on the backend
-    
+    tweets.forEach(tweet => {
+      if (tweet.date) {
+        tweet.date = new Date(tweet.date).toISOString();
+      }
+    });
 
   res.render("index.njk", {
     title: "Qvixter - All posts",
-    //message: "Message from routes/index.js",
     tweets: tweets,
   })
 })
 
-router.get("/new", (req, res) => {
+router.get("/new", authMiddleware, (req, res) => {
   res.render("new.njk", {
     title: "qvixter - new post"
   })
 })
 
-router.post("/new", async (req, res ) =>{
+router.post("/new", authMiddleware, async (req, res ) =>{
   const message = req.body.message
-    const author_id = 1
-    await db.run("INSERT INTO tweet (message, author_id) VALUES (?, ?)", message, author_id)
-    res.redirect("/")
+ 
+  const author_id = req.session?.userId || 1
+  await db.run("INSERT INTO tweet (message, author_id) VALUES (?, ?)", message, author_id)
+  res.redirect("/")
 
   console.log("here")
   

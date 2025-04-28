@@ -10,6 +10,7 @@ import bodyParser from "body-parser"
 import indexRouter from "./routes/index.js"
 import tweetsRouter from "./routes/tweets.js"
 import loginRouter from "./routes/login.js"
+import registerRouter from "./routes/register.js"
 
 const app = express()
 const port = 3000
@@ -32,6 +33,16 @@ app.use(session({
 app.use("/", indexRouter)
 app.use("/tweets", tweetsRouter)
 app.use("/login", loginRouter)
+app.use("/register", registerRouter)
+
+
+// Authentication middleware to protect routes
+export function authMiddleware(req, res, next) {
+  if (!req.session.userId) {
+    return res.redirect("/login");
+  }
+  next();
+}
 
 // Redirect /logedin to /login/logedin for backwards compatibility
 app.get("/logedin", (req, res) => {

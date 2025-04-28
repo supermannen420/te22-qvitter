@@ -42,11 +42,12 @@
     <a href="/new">New Post</a>
   </div>
 </main>
-<script>
+  <script>
   document.addEventListener("DOMContentLoaded", function() {
     const timeElements = document.querySelectorAll("time[datetime]");
     timeElements.forEach(timeElement => {
-      const date = new Date(timeElement.getAttribute("datetime"));
+      const dateStr = timeElement.getAttribute("datetime");
+      const date = new Date(dateStr); // Parse datetime string as is
       const now = new Date();
       const diffInSeconds = Math.floor((now - date) / 1000);
       const diffInMinutes = Math.floor(diffInSeconds / 60);
