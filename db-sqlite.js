@@ -27,6 +27,23 @@ await db.exec(`
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
   );
 `);
+
+// Create the reply table if it doesn't exist
+//tweet id för att identifiera tweets
+//author id för att se vem som relpy
+//FORIIGN key för att se refferense
+await db.exec(`
+  CREATE TABLE IF NOT EXISTS reply (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    tweet_id INTEGER,
+    message TEXT,
+    author_id INTEGER,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (tweet_id) REFERENCES tweet(id),
+    FOREIGN KEY (author_id) REFERENCES user(id)
+  );
+`);
 // Insert a default user if the table is empty
 const userCount = await db.get('SELECT COUNT(*) AS count FROM user');
 if (userCount.count === 0) {

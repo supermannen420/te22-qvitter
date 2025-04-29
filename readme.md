@@ -4,4 +4,6 @@ Boilerplate för webbserver med Node.js och Express.
 
 
 
-kan inte e alla tweets va på new sist
+tiden vissade 2 timmar när man skapade ny så skapade en time offset för att ändra så att den vissar corecct tid
+
+jag frågade ai hur man gör reply så mycket av den funktionen fick jag hjälp med. De va lätt att förstå de mesta direkt då de va liknande med de vi gjort innan och de nya bad jag ai förklara.

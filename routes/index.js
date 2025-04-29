@@ -9,7 +9,7 @@ router.get("/", authMiddleware, async (req, res) => {
   
 
     const tweets = await db.all(`
-    SELECT tweet.*, user.name AS username, tweet.created_at AS date
+    SELECT tweet.*, user.name AS username, tweet.updated_at AS date
     FROM tweet
     JOIN user ON tweet.author_id = user.id
     ORDER BY updated_at DESC;
@@ -37,7 +37,8 @@ router.post("/new", authMiddleware, async (req, res ) =>{
   const message = req.body.message
  
   const author_id = req.session?.userId || 1
-  await db.run("INSERT INTO tweet (message, author_id) VALUES (?, ?)", message, author_id)
+  const created_at = new Date().toISOString()
+  await db.run("INSERT INTO tweet (message, author_id, created_at) VALUES (?, ?, ?)", message, author_id, created_at)
   res.redirect("/")
 
   console.log("here")

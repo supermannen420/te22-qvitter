@@ -16,8 +16,8 @@
           <p>{{ tweet.message }}</p>
           <footer>
             <ul></div>
-                <div class="star">
-                  <li class="star"><a href="">&#10150;</a></li>
+                <div class="Reply">
+                  <li class="Reply"><a href="#" class="reply-button" data-tweet-id="{{ tweet.id }}">&#10150;</a></li>
                 </div>
                 <div class="star">
                   <li class="star"><a href="">&#8635;</a></li>
@@ -33,6 +33,14 @@
                 </div>
             </ul>
           </footer>
+          <div class="ReplyDiv" id="replydiv-{{ tweet.id }}">
+            <h2>Replies</h2>
+            <div class="replies-list"></div>
+            <form class="reply-form" data-tweet-id="{{ tweet.id }}" style="display:none;">
+              <textarea name="message" required maxlength="130"></textarea>
+              <button type="submit">Submit Reply</button>
+            </form>
+          </div>
         </article>
       </li>
      
@@ -46,8 +54,8 @@
   document.addEventListener("DOMContentLoaded", function() {
     const timeElements = document.querySelectorAll("time[datetime]");
     timeElements.forEach(timeElement => {
-      const dateStr = timeElement.getAttribute("datetime");
-      const date = new Date(dateStr); // Parse datetime string as is
+      let date = new Date(timeElement.getAttribute("datetime"));
+      date = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
       const now = new Date();
       const diffInSeconds = Math.floor((now - date) / 1000);
       const diffInMinutes = Math.floor(diffInSeconds / 60);
@@ -55,7 +63,9 @@
       const diffInDays = Math.floor(diffInHours / 24);
 
       let displayText;
-      if (diffInDays > 0) {
+      if (diffInSeconds < 60) {
+        displayText = "just now";
+      } else if (diffInDays > 0) {
         displayText = `${diffInDays} day${diffInDays > 1 ? 's' : ''} ago`;
       } else if (diffInHours > 0) {
         displayText = `${diffInHours} hour${diffInHours > 1 ? 's' : ''} ago`;
@@ -69,4 +79,5 @@
     });
   });
 </script>
+<script src="/replies.js"></script>
 {% endblock %}

@@ -11,6 +11,7 @@ import indexRouter from "./routes/index.js"
 import tweetsRouter from "./routes/tweets.js"
 import loginRouter from "./routes/login.js"
 import registerRouter from "./routes/register.js"
+import repliesRouter from "./routes/replies.js"
 
 const app = express()
 const port = 3000
@@ -30,13 +31,15 @@ app.use(session({
   cookie: { sameSite: true }
 }))
 
+app.use(express.json())
+
 app.use("/", indexRouter)
 app.use("/tweets", tweetsRouter)
 app.use("/login", loginRouter)
 app.use("/register", registerRouter)
+app.use("/replies", repliesRouter)
 
-
-// Authentication middleware to protect routes
+// kolla om du är inloggaf
 export function authMiddleware(req, res, next) {
   if (!req.session.userId) {
     return res.redirect("/login");

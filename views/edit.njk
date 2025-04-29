@@ -8,8 +8,8 @@
       <label for="message">EDIT</label>
     </div>
     <div class="input">
-      <input type="hidden" username="id" value="{{ tweet.id }}">
-      <textarea id="message" username="message" required>{{ tweet.message }}</textarea>
+      <input type="hidden" name="id" value="{{ tweet.id }}">
+      <textarea id="message" name="message" required>{{ tweet.message }}</textarea>
       <button class="Edit" type="submit">Submit</button>
     </div>
   </form>
