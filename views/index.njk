@@ -20,11 +20,9 @@
                   <li class="Reply"><a href="#" class="reply-button" data-tweet-id="{{ tweet.id }}">&#10150;</a></li>
                 </div>
                 <div class="star">
-                  <li class="star"><a href="">&#8635;</a></li>
+                  <li class="star"><a href="/share">&#8635;</a></li>
                 </div>
-                <div class="star">
-                  <li class="star"><a href="">&#9734;</a></li>
-                </div>
+              
                 <div class="star">
                   <li class="star"><a href="/tweets/{{ tweet.id }}/edit">&#xf5a1;</a></li>
                 </div>
@@ -49,6 +47,15 @@
   <div class="nytt">
     <a href="/new">New Post</a>
   </div>
+  <div class="active">
+    <div class="user">
+      <p>{{ activeUser }}</p> 
+    </div> 
+    <div class="logout">
+      <a href="">LogOut</a>
+    </div>
+  </div>
+
 </main>
   <script>
   document.addEventListener("DOMContentLoaded", function() {

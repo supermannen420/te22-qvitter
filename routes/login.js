@@ -34,7 +34,7 @@ router.post("/", async (req, res) => {
           const insertResult = await sqliteDb.run("INSERT INTO user (name) VALUES (?)", username);
           sqliteUser = { id: insertResult.lastID, name: username };
         }
-        req.session.userId = sqliteUser.id; // Store SQLite user id in session
+        req.session.userId = sqliteUser.id; 
         res.redirect("/");
       } else {
         console.log("lösenord eller andvändarnamn hittas inte");

@@ -13,6 +13,7 @@ import loginRouter from "./routes/login.js"
 import registerRouter from "./routes/register.js"
 import repliesRouter from "./routes/replies.js"
 
+
 const app = express()
 const port = 3000
 
@@ -38,6 +39,7 @@ app.use("/tweets", tweetsRouter)
 app.use("/login", loginRouter)
 app.use("/register", registerRouter)
 app.use("/replies", repliesRouter)
+
 
 // kolla om du är inloggaf
 export function authMiddleware(req, res, next) {

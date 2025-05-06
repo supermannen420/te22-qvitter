@@ -157,6 +157,45 @@ textarea {
   font-weight: bold;
 }
 
+.logout{
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  background: #007bff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.logout:hover {
+  background: #0056b3;
+  transform: translateY(-6px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.logout a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.user{
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.active {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: fixed;
+  top: 0px;
+  right: 50px;
+  
+}
 
 
 .star {

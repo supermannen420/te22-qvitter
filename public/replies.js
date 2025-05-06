@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-  // Handle reply button click to toggle reply form
+  // reply toggle form från knapp
   document.querySelectorAll(".reply-button").forEach(button => {
     button.addEventListener("click", function(event) {
       event.preventDefault();
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
-  // Load replies for each tweet
+  // replies varje tweet tweet
   document.querySelectorAll(".ReplyDiv").forEach(div => {
     const tweetId = div.id.replace("replydiv-", "");
     fetch(`/replies/${tweetId}`)
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
       });
   });
 
-  // Handle reply form submission
+  // hantera reply från skapande
   document.querySelectorAll(".reply-form").forEach(form => {
     form.addEventListener("submit", function(event) {
       event.preventDefault();
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
         body: JSON.stringify({ tweet_id: tweetId, message: message })
       }).then(response => {
         if (response.ok) {
-          // Reload replies
+          // ladda om 
           fetch(`/replies/${tweetId}`)
             .then(response => response.json())
             .then(replies => {
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 replyElement.innerHTML = `<strong>${reply.username}</strong>: ${reply.message}`;
                 repliesList.appendChild(replyElement);
               });
-              // Clear and hide form
+              // rensa och clera box
               form.querySelector("textarea[name='message']").value = "";
               form.style.display = "none";
             });
