@@ -21,7 +21,7 @@ router.post("/", async (req, res) => {
 
   try {
     const user = await db.get("SELECT * FROM user WHERE name = ?", username);
-    if (!user) {
+    if (!user || !user.password) {
       console.log("Username or password not found");
       return res.status(401).send("Invalid username or password");
     }
@@ -33,6 +33,7 @@ router.post("/", async (req, res) => {
     }
 
     req.session.userId = user.id;
+    console.log("Login successful, redirecting...");
     res.redirect("/");
   } catch (error) {
     console.error(error);
